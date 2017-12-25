@@ -18,6 +18,14 @@ router.get('/login',function(req,res){
   res.render('webSiteOwner/login/sign-in');
 });
 
+router.get('/register',function(req,res){
+  res.render('webSiteOwner/login/sign-up');
+});
+
+router.get('/forgetPw',function(req,res){
+  res.render('webSiteOwner/login/forgot-password');
+});
+
 
 
 module.exports = router;
