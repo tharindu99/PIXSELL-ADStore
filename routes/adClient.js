@@ -1,13 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-
-//app.use('/webSiteOwner',require('webSiteOwner'));
-
-router.use('/webSiteOwner',require('./webSiteOwner'));
-router.use('/adClient',require('./adClient'));
-
 router.get('/', function(req, res, next) {
   var TopBar = {
     project_name:'PIXSELL AD Store',
@@ -20,5 +13,11 @@ router.get('/', function(req, res, next) {
   }
   res.render('home',{title:'PIXSELL AD Store',TopBar:TopBar,LeftSlideBar:LeftSlideBar});
 });
+
+router.get('/login',function(req,res){
+  res.render('ADClient/login/sign-in');
+});
+
+
 
 module.exports = router;
