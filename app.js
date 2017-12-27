@@ -5,9 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var env = require('dotenv').load();
+
+
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/webSiteOwner');
+var index = require('./routes/adClient');
+var models = require("./models")
 
 var app = express();
 
@@ -48,6 +53,14 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+
+//sync Database
+models.sequelize.sync().then(function(){
+  console.log("Nice! Database looks fine")
+}).catch(function(err){
+  console.log(err,"Something went wrong with the database update!")
 });
 
 module.exports = app;
