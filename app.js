@@ -6,15 +6,25 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var env = require('dotenv').load();
-
-
+var passport = require('passport');
+var session = require('express-session');
 
 var index = require('./routes/index');
-var users = require('./routes/webSiteOwner');
-var index = require('./routes/adClient');
-var models = require("./models")
+var webSiteOwner = require('./routes/webSiteOwner');
+var adClient = require('./routes/adClient');
+var models = require('./models');
+require('./config/passport/passport')(passport,models.user);
 
 var app = express();
+
+//for Passport
+app.use(session({
+  secret:'keyboard cat',
+  resave:true,
+  saveUninitialized:true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,7 +45,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -54,6 +64,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 
 //sync Database
