@@ -73,12 +73,11 @@ module.exports = function(passport, user) {
            passReqToCallback:true
        },
        function(req,email,password,done){
-        console.log("lllllllllllllllllllllll");
            var User = user;
            var isValidPassword = function(userpass,password){
                return bCrypt.compareSync(password,userpass);
            }
-           console.log("vvvvvvvvvvvv : "+isValidPassword);
+          
            User.findOne({where:{email:email}}).then(function(user){
             if (!user) {
                 return done(null, false, { message: 'Email does not exist' });

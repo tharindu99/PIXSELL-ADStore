@@ -11,9 +11,18 @@ router.get('/', function(req, res, next) {
     notificationShow:'none',
     taskShow:'none',
   }
-  var LeftSlideBar = {
-    user : 'none'
+  var LeftSlideBar;
+
+  if(!req.user==null){
+    LeftSlideBar = {
+      user : 'block'
+    }
+  }else{
+    LeftSlideBar = {
+      user : 'none'
+    }
   }
+  
   res.render('home',{title:'PIXSELL AD Store',TopBar:TopBar,LeftSlideBar:LeftSlideBar});
 });
 
