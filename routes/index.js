@@ -5,20 +5,48 @@ var router = express.Router();
 
 //app.use('/webSiteOwner',require('webSiteOwner'));
 
-router.use('/webSiteOwner',require('./webSiteOwner'));
-router.use('/adClient',require('./adClient'));
-
 router.get('/', function(req, res, next) {
-  var TopBar = {
-    project_name:'PIXSELL AD Store',
-    searchShow:'none',
-    notificationShow:'none',
-    taskShow:'none',
+  var pageBasic = {
+    page_title:'PIXSELL'
   }
-  var LeftSlideBar = {
-    user : 'none'
+  var headerBar = {
+    header_title:'PIXSELL AD-Store',
+    header_title_URL:'#'
   }
-  res.render('home',{title:'PIXSELL AD Store',TopBar:TopBar,LeftSlideBar:LeftSlideBar});
+  var leftMenu = {
+    menu:{
+        items :[
+          {name:'Home',class:'active',url:'/',icon:'home'},
+          {name:'About',class:'normal',url:'/about',icon:'gamepad'},
+        ]
+    },
+    footer:{
+    }
+  }
+  res.render('home',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu});
 });
+
+router.get('/about', function(req, res, next) {
+  var pageBasic = {
+    page_title:'About'
+  }
+  var headerBar = {
+    header_title:'PIXSELL AD-Store About',
+    header_title_URL:'#'
+  }
+  var leftMenu = {
+    menu:{
+        items :[
+          {name:'Home',class:'normal',url:'/',icon:'home'},
+          {name:'About',class:'active',url:'about',icon:'gamepad'},
+        ]
+    },
+    footer:{
+
+    }
+  }
+  res.render('base',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu});
+});
+
 
 module.exports = router;

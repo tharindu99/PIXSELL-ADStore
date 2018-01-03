@@ -1,0 +1,54 @@
+
+pageBasic 
+    page_title
+
+headerBar
+    header_title,
+    header_title_URL,
+
+leftMenu
+    user{ // optional
+        name,
+        image,
+        subtitile,
+    }
+    menu:{
+        items :[
+          {name:'Home',class:'active',url:'#',icon:'home'},
+          {name:'AD blocks',class:'normal',url:'#',icon:'widgets'}
+        ]
+    }
+
+
+///////////////////
+
+var pageBasic = {
+    page_title:'PIXSELL'
+  }
+  
+  var headerBar = {
+    header_title:'PIXSELL AD-Store',
+    header_title_URL:'#'
+  }
+
+  var leftMenu = {
+    user:{
+      name:'Tharindu Madushanka',
+      image:'images/user.png',
+      subtitile:'ABC.lk | BC.com'
+    },
+    menu:{
+        items :[
+          {name:'Home',class:'active',url:'#',icon:'home'},
+          {name:'AD blocks',class:'normal',url:'#',icon:'widgets'},
+          {name:'My Account',class:'normal',url:'#',icon:'account_box'}
+        ]
+    },
+    footer:{
+
+    }
+  }
+
+  /////
+
+  {pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu}

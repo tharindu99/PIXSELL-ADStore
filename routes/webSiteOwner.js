@@ -11,19 +11,12 @@ router.get('/', function(req, res, next) {
     notificationShow:'none',
     taskShow:'none',
   }
-  var LeftSlideBar;
-
-  if(!req.user==null){
-    LeftSlideBar = {
-      user : 'block'
-    }
-  }else{
-    LeftSlideBar = {
-      user : 'none'
-    }
+  var LeftSlideBar = {
+      user : 'block',
+      user_info:req.user
   }
-  
-  res.render('home',{title:'PIXSELL AD Store',TopBar:TopBar,LeftSlideBar:LeftSlideBar});
+ // console.log(req.user);
+  res.render('webSiteOwner',{title:'PIXSELL AD Store',TopBar:TopBar,LeftSlideBar:LeftSlideBar});
 });
 
 router

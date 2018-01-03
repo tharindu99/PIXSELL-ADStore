@@ -1,0 +1,60 @@
+<section>
+    <!-- Left Sidebar --> 
+    <aside id="leftsidebar" class="sidebar">
+        <!-- User Info -->
+        <div class="user-info"  >
+            <% if(leftMenu.user){ %>
+                <div>
+                    <div class="image" >
+                        <img src="<%=leftMenu.user.image%>" width="48" height="48" alt="User" />
+                    </div>
+                    <div class="info-container" style="display:block">
+                        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=leftMenu.user.name%></div>
+                        <div class="email"><%=leftMenu.user.subtitile%></div>
+                        <div class="btn-group user-helper-dropdown">
+                            <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                                    <li role="seperator" class="divider"></li>
+                                    <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                </div> 
+            <% } %>
+               
+        </div>
+            <!-- #User Info -->
+            <% if(leftMenu.menu){ %>
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <% leftMenu.menu.items.forEach(function(menu_item){%>
+                        <li class="<%=menu_item.class%>">
+                            <a href="<%=menu_item.url%>">
+                                <i class="material-icons"><%=menu_item.icon%></i>
+                                <span><%=menu_item.name%></span>
+                            </a>
+                        </li>
+                    <% }); %>
+                   
+                </ul>
+            </div>
+            <% } %>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <% if(leftMenu.footer){ %>
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2018 <a href="javascript:void(0);">PIXSELL project - Legator Solutions</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.0
+                </div>
+            </div>
+            <% } %>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>

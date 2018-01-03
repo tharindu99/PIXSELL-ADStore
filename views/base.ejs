@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <% include UIComponents/ThemeScripts/Theme_CSS.ejs %>
+        <title><%=pageBasic.page_title %></title> 
+    </head>
+    <body class="theme-red">
+        <% include UIComponents/UIWidget/pageLoader.ejs %>
+        <div class="overlay"></div><!-- Overlay For Sidebars -->
+        <% include UIComponents/UIWidget/searchBar.ejs %> <!-- Search Bar -->
+        <% include UIComponents/UIWidget/headerBar.ejs %> <!-- Top Bar -->
+        <% include UIComponents/UIWidget/leftMenu.ejs %> <!-- Left Menu -->
+       
+        <% include UIComponents/ThemeScripts/Theme_JS.ejs %>
+    </body>
