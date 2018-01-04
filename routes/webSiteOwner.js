@@ -1,43 +1,76 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var authController = require('../controllers/authcontrollers');
+
+
 
 router.get('/', function(req, res, next) {
-  var TopBar = {
-    project_name:'PIXSELL AD Store',
-    searchShow:'none',
-    notificationShow:'none',
-    taskShow:'none',
+  var pageBasic = {
+    page_title:'PIXSELL'
   }
-  var LeftSlideBar = {
-      user : 'block',
-      user_info:req.user
+  var headerBar = {
+    header_title:'PIXSELL AD-Store - WEB SITE OWNER',
+    header_title_URL:'#'
   }
- // console.log(req.user);
-  res.render('webSiteOwner',{title:'PIXSELL AD Store',TopBar:TopBar,LeftSlideBar:LeftSlideBar});
+  var leftMenu = {
+    user:{
+      name:'Tharindu Madushanka',
+      image:'../../../../../images/user.png',
+      subtitile:'ABC.lk | BC.com'
+    },
+    menu:{
+        items :[
+          {name:'Home',class:'active',url:'/',icon:'home'},
+          {name:'AD Blocks',class:'normal',url:'webSiteOwner/adblock',icon:'widgets'},
+          {name:'My Account',class:'normal',url:'#',icon:'verified_user'},
+          {name:'Help',class:'normal',url:'/help',icon:'help'},
+        ]
+    },
+    footer:{
+    }
+  } 
+  var page_content = {
+    dash4panels:{
+      items : [
+        {name:'Active Blocks',width:4,color:'red',icon:'widgets',value:3},
+        {name:'Earnings',width:4,color:'green',icon:'monetization_on',value:'54K'},
+        {name:'Micro Investors',width:4,color:'blue',icon:'grain',value:2468}
+      ]
+    }
+  }
+  res.render('webSiteOwner',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content});
 });
 
-router
-  .get('/login',authController.siteOwner_signin)
-  .post('/login',passport.authenticate('local-signin',{
-    successRedirect:'/webSiteOwner',
-    failureRedirect:'./login'
+router.get('/adblock',function(req,res,next){
+  var pageBasic = {
+    page_title:'PIXSELL'
   }
-));
-
-router
-  .get('/signup',authController.siteOwner_signup)
-  .post('/signup',passport.authenticate('local-signup',{
-    successRedirect: '/webSiteOwner',
-    failureRedirect: './signup'
+  var headerBar = {
+    header_title:'PIXSELL AD-Store - WEB SITE OWNER',
+    header_title_URL:'#'
   }
-));
+  var leftMenu = {
+    user:{
+      name:'Tharindu Madushanka',
+      image:'../../../../../images/user.png',
+      subtitile:'ABC.lk | BC.com'
+    },
+    menu:{
+        items :[
+          {name:'Home',class:'normal',url:'/webSiteOwner',icon:'home'},
+          {name:'AD Blocks',class:'active',url:'webSiteOwner/adblock',icon:'widgets'},
+          {name:'My Account',class:'normal',url:'#',icon:'verified_user'},
+          {name:'Help',class:'normal',url:'/help',icon:'help'},
+        ]
+    },
+    footer:{
+    }
+  } 
+  var page_content = {
 
-router.get('/forgetPw',function(req,res){
-  res.render('webSiteOwner/login/forgot-password');
+  }
+  res.render('webSiteOwner',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content})
 });
+
 
 
 

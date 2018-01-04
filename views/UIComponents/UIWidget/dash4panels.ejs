@@ -1,0 +1,19 @@
+<!-- Widgets -->
+<% if(page_content.dash4panels) { %>
+<div class="row clearfix">
+   
+    <% page_content.dash4panels.items.forEach(function(item){ %>
+         <div class="col-lg-<%=item.width%> col-md-<%=item.width%> col-sm-6 col-xs-12">
+            <div class="info-box bg-<%=item.color%> hover-expand-effect">
+                <div class="icon">
+                    <i class="material-icons"><%=item.icon%></i>
+                </div>
+                <div class="content">
+                    <div class="text"><%=item.name%></div>
+                    <div class="number count-to"><%=item.value%></div>
+                </div>
+            </div>
+        </div> 
+    <% }); %>  
+</div>
+<% } %>

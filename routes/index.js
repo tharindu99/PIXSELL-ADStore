@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var webSiteOwner = require('./webSiteOwner');
 
 /* GET home page. */
 
-//app.use('/webSiteOwner',require('webSiteOwner'));
+router.use('/webSiteOwner',webSiteOwner);
 
 router.get('/', function(req, res, next) {
   var pageBasic = {
@@ -45,6 +46,7 @@ router.get('/about', function(req, res, next) {
 
     }
   }
+  console.log("jjjjjjjj :"+baseURL);
   res.render('base',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu});
 });
 

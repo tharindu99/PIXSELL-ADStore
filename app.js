@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var env = require('dotenv').load();
+var URL = require('url');
 var passport = require('passport');
 var session = require('express-session');
 
@@ -14,6 +15,8 @@ var webSiteOwner = require('./routes/webSiteOwner');
 var adClient = require('./routes/adClient');
 var models = require('./models');
 require('./config/passport/passport')(passport,models.user);
+
+global.baseURL = "http://localhost:3000/";
 
 var app = express();
 
