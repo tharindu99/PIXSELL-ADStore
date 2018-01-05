@@ -14,10 +14,20 @@
         <section class="content">
             <div class="container-fluid">
                  <%include UIComponents/UIWidget/dash4panels.ejs %> <!-- Top 4 wigets -->
-                
+                 <%include UIComponents/UIWidget/block_register.ejs %>
             </div>
+            <% if(page_content.adblocksView){ %>
+                <div class="row clearfix">
+                    <% page_content.adblocksView.blocks.forEach(function(blk){ %>
+                        <%include UIComponents/UIWidget/block_view.ejs {blk:blk} %>
+                    <% }); %>
+                </div>
+            <% } %>
         </section>
        
        
         <% include UIComponents/ThemeScripts/Theme_JS.ejs %>
+        <% if(page_content.formWizard){ %>
+            <% include UIComponents/SpecWidget/formWizard.ejs %>
+        <% } %>
     </body>

@@ -46,7 +46,7 @@ router.get('/about', function(req, res, next) {
 
     }
   }
-  console.log("jjjjjjjj :"+baseURL);
+  
   res.render('base',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu});
 });
 

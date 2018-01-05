@@ -65,8 +65,21 @@ router.get('/adblock',function(req,res,next){
     footer:{
     }
   } 
+  
   var page_content = {
+    block_register:{
 
+    },
+    formWizard:{
+
+    },
+    adblocksView:{
+      blocks:[
+        {name:'ABC.lk',size:6,color:'red'},
+        {name:'ABC.lk',size:6,color:'green'},
+        {name:'ABC.lk',size:6,color:'blue'}
+      ]
+    }
   }
   res.render('webSiteOwner',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content})
 });
