@@ -1,6 +1,6 @@
 module.exports = function(sequelize,Sequelize){
     var SuperAgent = sequelize.define('superagent',{
-        id: {
+        agentid: {
             autoIncrement:true,
             primaryKey:true,
             type:Sequelize.INTEGER

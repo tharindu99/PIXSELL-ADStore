@@ -1,6 +1,6 @@
 module.exports = function(sequelize,Sequelize){
     var Adblock = sequelize.define('adblock',{
-        id: {
+        blockid: {
             autoIncrement:true,
             primaryKey:true,
             type:Sequelize.INTEGER
@@ -9,7 +9,15 @@ module.exports = function(sequelize,Sequelize){
             type:Sequelize.TEXT,
             notEmpty:true
         }, 
-        url: {
+        keyurl: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        siteurl: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        websitename: {
             type: Sequelize.STRING,
             allowNull: false
         },
@@ -37,13 +45,17 @@ module.exports = function(sequelize,Sequelize){
         setOwnerRisk:{
             //between 0 to 100
             type: Sequelize.INTEGER,
-            defaultValue:50
+            defaultValue:50,
+            validate: { min: 0, max: 100 }
         },
         status: {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'
         }
  
-    });
+    }
+
+
+);
     return Adblock;
 }

@@ -24,7 +24,12 @@ Object.keys(db).forEach(function(modelName){
     }
 });
 
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+db.adblock.belongsTo(db.websiteOwner,{foreignKey: 'ownerid'}); 
+db.adblock_history.belongsTo(db.adblock,{foreignKey: 'blockid'}); 
+db.superagent.belongsTo(db.adblock,{foreignKey: 'blockid'}); 
 
 module.exports = db;

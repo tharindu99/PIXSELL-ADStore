@@ -73,11 +73,11 @@ router.get('/adblock',function(req,res,next){
     formWizard:{
 
     },
-    adblocksView:{
+    adblocksView:{ 
       blocks:[
-        {name:'ABC.lk',size:6,color:'red'},
-        {name:'ABC.lk',size:6,color:'green'},
-        {name:'ABC.lk',size:6,color:'blue'}
+        {name:'ABC.lk - Top A',subTitle:'',size:6,color:'red'},
+        {name:'BC.com - Top C',subTitle:'',size:6,color:'green'},
+        {name:'ABC.lk - Left A',subTitle:'',size:6,color:'blue'}
       ]
     }
   }
