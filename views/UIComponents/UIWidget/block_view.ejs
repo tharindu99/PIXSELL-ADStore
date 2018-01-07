@@ -6,7 +6,52 @@
             </h2>
         </div>
         <div class="body">
-            Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="info-box bg-brown">
+                        <div class="icon">
+                            <span class="chart chart-line"><%=blk.widget_earn.data_arr%></span>
+                        </div>
+                        <div class="content">
+                            <div class="text">Earnings</div>
+                            <div class="number" style="font-size:150%">Rs.<%=blk.widget_earn.value%></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="info-box bg-deep-orange">
+                        <div class="icon">
+                            <div class="chart chart-pie"><%=blk.widget_complete.data_arr%></div>
+                        </div>
+                        <div class="content">
+                            <div class="text">Complete</div>
+                            <div class="number"><%=blk.widget_complete.value%>%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="info-box bg-amber">
+                        <div class="icon">
+                            <div class="chart chart-bar"><%=blk.widget_imp.data_arr%></div>
+                        </div>
+                        <div class="content">
+                            <div class="text">Impressions</div>
+                            <div class="number"><%=blk.widget_imp.value%></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="info-box bg-blue-grey">
+                        <div class="icon">
+                            <div class="chart chart-bar"><%=blk.widget_demand.data_arr%></div>
+                        </div>
+                        <div class="content">
+                            <div class="text">Demand</div>
+                            <div class="number"><%=blk.widget_demand.value%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div> 

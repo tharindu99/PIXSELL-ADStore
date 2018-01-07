@@ -1,7 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var models = require('../models');
+var randomGen = require('../controllers/randomGen');
 
-
+var demo_user = {
+  id:1,
+  name:'Tharindu Madushanka Peiris',
+  image:'../../../../../images/user.png'
+}
 
 router.get('/', function(req, res, next) {
   var pageBasic = {
@@ -13,10 +19,11 @@ router.get('/', function(req, res, next) {
   }
   var leftMenu = {
     user:{
-      name:'Tharindu Madushanka',
-      image:'../../../../../images/user.png',
+      name:demo_user.name,
+      image:demo_user.image,
       subtitile:'ABC.lk | BC.com'
     },
+
     menu:{
         items :[
           {name:'Home',class:'active',url:'/',icon:'home'},
@@ -50,14 +57,14 @@ router.get('/adblock',function(req,res,next){
   }
   var leftMenu = {
     user:{
-      name:'Tharindu Madushanka',
-      image:'../../../../../images/user.png',
+      name:demo_user.name,
+      image:demo_user.image,
       subtitile:'ABC.lk | BC.com'
     },
     menu:{
         items :[
           {name:'Home',class:'normal',url:'/webSiteOwner',icon:'home'},
-          {name:'AD Blocks',class:'active',url:'webSiteOwner/adblock',icon:'widgets'},
+          {name:'AD Blocks',class:'active',url:'#',icon:'widgets'},
           {name:'My Account',class:'normal',url:'#',icon:'verified_user'},
           {name:'Help',class:'normal',url:'/help',icon:'help'},
         ]
@@ -65,23 +72,49 @@ router.get('/adblock',function(req,res,next){
     footer:{
     }
   } 
-  
-  var page_content = {
-    block_register:{
 
-    },
-    formWizard:{
-
-    },
-    adblocksView:{ 
-      blocks:[
-        {name:'ABC.lk - Top A',subTitle:'',size:6,color:'red'},
-        {name:'BC.com - Top C',subTitle:'',size:6,color:'green'},
-        {name:'ABC.lk - Left A',subTitle:'',size:6,color:'blue'}
-      ]
+  var block_fillData=[];
+  var blocks =  models.adblock.findAll({
+    where: {
+      ownerid: 1
     }
-  }
-  res.render('webSiteOwner',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content})
+  }).then(blockInst => {
+      blockInst.forEach(blk => {
+        var temp_earn = randomGen.earn()[0];
+        var temp_complete = randomGen.complete()[0];
+        var temp_imp = randomGen.imp()[0];
+        var temp_demand = randomGen.demand()[0];
+
+        block_fillData.push({
+          name:blk.websitename+" : "+blk.name,
+          subTitle:'since '+blk.start,
+          size:6,
+          color:randomGen.color(),
+          widget_earn:{value:temp_earn.earn_Amount,data_arr:temp_earn.earn_Arr},
+          widget_complete:{value:temp_complete.complete_Value,data_arr:temp_complete.complete_Arr},
+          widget_imp:{value:temp_imp.imp_Value,data_arr:temp_imp.imp_Arr},
+          widget_demand:{value:temp_demand.demanding_Value,data_arr:temp_demand.demand_Arr}
+        });
+      });
+     // console.log(block_fillData);
+      var page_content = {
+        block_register:{
+    
+        },
+        formWizard:{
+    
+        },
+        adblocksView:{ 
+          blocks : block_fillData
+        }
+      }
+     
+      res.render('webSiteOwner',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content})
+  })
+
+ 
+
+  
 });
 
 
