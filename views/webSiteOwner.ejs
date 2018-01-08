@@ -2,7 +2,11 @@
 <html>
     <head>
          <% include UIComponents/ThemeScripts/Theme_CSS.ejs %>
-        <title><%=pageBasic.page_title %></title> 
+         <% if(page_content.formWizard){ %>
+            <% include UIComponents/SpecWidget/formWizard_css.ejs %>
+        <% } %>
+         <title><%=pageBasic.page_title %></title> 
+         
     </head>
     <body class="theme-red">
         <% include UIComponents/UIWidget/pageLoader.ejs %>

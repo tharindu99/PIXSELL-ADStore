@@ -19,53 +19,77 @@
                             <h2>AD Block Registration Wizard</h2>
                         </div>
                         <div class="body">
-                            <div id="wizard_horizontal">
-                                <h2>First Step</h2>
-                                <section>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut nulla nunc. Maecenas
-                                        arcu sem, hendrerit a tempor quis, sagittis accumsan tellus. In hac habitasse platea
-                                        dictumst. Donec a semper dui. Nunc eget quam libero. Nam at felis metus. Nam tellus
-                                        dolor, tristique ac tempus nec, iaculis quis nisi.
-                                    </p>
-                                </section>
+                            <form id="wizard_with_validation" method="POST">
+                                <h3>Website Information</h3>
+                                <fieldset>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="siteName"  required>
+                                            <label class="form-label">Website Name [ex: ABC.lk ]</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="siteURL" required>
+                                            <label class="form-label">Site URL [ex: http://ABC.lk ]</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="blockName" required>
+                                            <label class="form-label">Block Name [ex: Top-A ]</label>
+                                        </div>
+                                    </div>
+                                   
+                                </fieldset>
 
-                                <h2>Second Step</h2>
-                                <section>
-                                    <p>
-                                        Donec mi sapien, hendrerit nec egestas a, rutrum vitae dolor. Nullam venenatis diam ac
-                                        ligula elementum pellentesque. In lobortis sollicitudin felis non eleifend. Morbi
-                                        tristique tellus est, sed tempor elit. Morbi varius, nulla quis condimentum dictum,
-                                        nisi elit condimentum magna, nec venenatis urna quam in nisi. Integer hendrerit sapien
-                                        a diam adipiscing consectetur. In euismod augue ullamcorper leo dignissim quis elementum
-                                        arcu porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo
-                                        velit, blandit ac tempor nec, ultrices id diam. Donec metus lacus, rhoncus sagittis
-                                        iaculis nec, malesuada a diam. Donec non pulvinar urna. Aliquam id velit lacus.
-                                    </p>
-                                </section>
+                                <h3>Block Information</h3>
+                                <fieldset>
+                                    <div class="row">
+                                        <dive class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                                            <p>Block Size : </p>
+                                        </dive>
+                                        <dive class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input min="18" type="number" name="age" class="form-control" required>
+                                                    <label class="form-label">Width(px)</label>
+                                                </div>          
+                                            </div>  
+                                        </dive>
+                                        <dive class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input min="18" type="number" name="age" class="form-control" required>
+                                                    <label class="form-label">Height(px)</label>
+                                                </div>          
+                                            </div>  
+                                        </dive>
+                                    </div>
+                                    <div class="row">
+                                        <dive class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                        <div class="form-line">
+                                                            <input type="text" class="datetimepicker form-control" placeholder="Please choose date & time...">
+                                                        </div>
+                                                    </div>
+                                        </dive>
+                                    </div>
+                                    
+                                   
+                                </fieldset>
 
-                                <h2>Third Step</h2>
-                                <section>
-                                    <p>
-                                        Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo
-                                        condimentum dapibus. Fusce eros justo, pellentesque non euismod ac, rutrum sed quam.
-                                        Ut non mi tortor. Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat.
-                                        Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui
-                                        commodo lectus sollicitudin in auctor mauris venenatis.
-                                    </p>
-                                </section>
+                                <h3>Terms & Conditions - Finish</h3>
+                                <fieldset>
+                                    <input id="acceptTerms-2" name="acceptTerms" type="checkbox" required>
+                                    <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                                <h2>Forth Step</h2>
-                                <section>
-                                    <p>
-                                        Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula
-                                        vulputate. Aliquam sed sem tortor. Quisque sed felis ut mauris feugiat iaculis nec
-                                        ac lectus. Sed consequat vestibulum purus, imperdiet varius est pellentesque vitae.
-                                        Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo
-                                        tortor.
-                                    </p>
-                                </section>
-                            </div>
                         </div>
                     </div>
                 </div>
