@@ -1,29 +1,47 @@
 var express = require('express');
 var router = express.Router(); 
+var models = require('../models');
+var randomGen = require('../controllers/randomGen');
+
+var demo_user = {
+  id:1,
+  name:'Kelum Rubasin',
+  image:'../../../../../images/user.png'
+}
 
 router.get('/', function(req, res, next) {
-  var TopBar = {
-    project_name:'PIXSELL AD Store',
-    searchShow:'none',
-    notificationShow:'none',
-    taskShow:'none',
+  var pageBasic = {
+    page_title:'PIXSELL'
   }
-  var LeftSlideBar = {
-    user : 'none'
+  var headerBar = {
+    header_title:'PIXSELL AD-Store - Advertising Client',
+    header_title_URL:'#'
   }
-  res.render('home',{title:'PIXSELL AD Store',TopBar:TopBar,LeftSlideBar:LeftSlideBar});
-});
+  var leftMenu = {
+    user:{
+      name:demo_user.name,
+      image:demo_user.image,
+      subtitile:''
+    },
 
-router.get('/login',function(req,res){
-  res.render('ADClient/login/sign-in');
-});
-
-router.get('/register',function(req,res){
-  res.render('ADClient/login/sign-up');
-});
-
-router.get('/forgetPw',function(req,res){
-  res.render('ADClient/login/forgot-password');
+    menu:{
+        items :[
+          {name:'Home',class:'active',url:'/',icon:'home'}
+        ]
+    },
+    footer:{
+    }
+  } 
+  var page_content = {
+    dash4panels:{
+      items : [
+        {name:'Active Blocks',width:4,color:'red',icon:'widgets',value:3},
+        {name:'Earnings',width:4,color:'green',icon:'monetization_on',value:'54K'},
+        {name:'Micro Investors',width:4,color:'blue',icon:'grain',value:2468}
+      ]
+    }
+  }
+  res.render('adClient',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content});
 });
 
 

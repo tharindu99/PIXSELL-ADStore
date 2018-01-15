@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var webSiteOwner = require('./webSiteOwner');
+var adClient = require('./adClient');
 
 /* GET home page. */
 
 router.use('/webSiteOwner',webSiteOwner);
+router.use('/adclient',adClient);
 
 router.get('/', function(req, res, next) {
   var pageBasic = {

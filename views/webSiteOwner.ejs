@@ -18,7 +18,6 @@
         <section class="content">
             <div class="container-fluid">
                  <%include UIComponents/UIWidget/dash4panels.ejs %> <!-- Top 4 wigets -->
-                 <%include UIComponents/UIWidget/block_register.ejs %>
             </div>
             <% if(page_content.adblocksView){ %>
                 <div class="row clearfix">
@@ -27,6 +26,7 @@
                     <% }); %>
                 </div>
             <% } %>
+            <%include UIComponents/UIWidget/block_register.ejs %>
         </section>
        
        

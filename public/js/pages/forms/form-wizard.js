@@ -27,7 +27,7 @@ $(function () {
     });
 
     //Advanced form with validation
-    var form = $('#wizard_with_validation').show();
+    var form = $('#Adblock_registration').show();
     form.steps({
         headerTag: 'h3',
         bodyTag: 'fieldset',
@@ -62,7 +62,9 @@ $(function () {
             return form.valid();
         },
         onFinished: function (event, currentIndex) {
-            swal("Good job!", "Submitted!", "success");
+            //console.log(event);
+            form.submit();
+            swal("AD block registered!", "Submitted!", "success");
         }
     });
 
