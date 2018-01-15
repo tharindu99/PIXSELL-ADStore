@@ -15,6 +15,22 @@ module.exports = function(sequelize,Sequelize){
         },  
         time: {
             type: Sequelize.DATE
+        },
+        earnings :{
+           type:Sequelize.INTEGER,
+           default:0 
+        },
+        impressions:{
+            type:Sequelize.INTEGER,
+            default:0
+        },
+        complete:{
+            type:Sequelize.INTEGER,
+            default:0
+        },
+        demand:{
+            type:Sequelize.INTEGER,
+            default:0
         }
  
     });

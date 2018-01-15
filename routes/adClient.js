@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
   }
   var headerBar = {
     header_title:'PIXSELL AD-Store - Advertising Client',
-    header_title_URL:'#'
+    header_title_URL:'./'
   }
   var leftMenu = {
     user:{
@@ -26,7 +26,8 @@ router.get('/', function(req, res, next) {
 
     menu:{
         items :[
-          {name:'Home',class:'active',url:'/',icon:'home'}
+          {name:'Home',class:'active',url:'/',icon:'home'},
+          {name:'My Account',class:'normal',url:'#',icon:'verified_user'},
         ]
     },
     footer:{

@@ -12,12 +12,13 @@ var demo_user = {
 }
 
 router.get('/', function(req, res, next) {
+
   var pageBasic = {
     page_title:'PIXSELL'
   }
   var headerBar = {
     header_title:'PIXSELL AD-Store - WEB SITE OWNER',
-    header_title_URL:'#'
+    header_title_URL:'./'
   }
   var leftMenu = {
     user:{
@@ -76,6 +77,7 @@ router.get('/adblock',function(req,res,next){
   } 
 
   var block_fillData=[];
+
   var blocks =  models.adblock.findAll({
     where: {
       ownerid: 1

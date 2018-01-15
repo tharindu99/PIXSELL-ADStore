@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
     <head>
          <% include UIComponents/ThemeScripts/Theme_CSS.ejs %>
@@ -11,5 +11,43 @@
         <% include UIComponents/UIWidget/headerBar.ejs %> <!-- Top Bar -->
         <% include UIComponents/UIWidget/leftMenu.ejs %> <!-- Left Menu -->
        
+        <section class="content">
+            <div class="container-fluid">
+                    <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="body">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                            <li role="presentation" class="active"><a href="#trending" data-toggle="tab">
+                                                    <i class="material-icons">whatshot</i> Trending</a></li>
+                                            <li role="presentation"><a href="#suggest" data-toggle="tab">
+                                                    <i class="material-icons">assessment</i> Suggest</a></li>
+                                            <li role="presentation"><a href="#search" data-toggle="tab">
+                                                    <i class="material-icons">search</i> Search and Browse</a></li>
+                                        </ul>
+            
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="trending">
+                                                <%include UIComponents/UIWidget/clientAdblock_view.ejs %>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="suggest">
+                                                <%include UIComponents/UIWidget/clientAdblock_view.ejs %>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="search">
+                                                <input type="text" placeholder="Search" class="form-control" name="siteName">
+                                                <br>
+                                                <%include UIComponents/UIWidget/clientAdblock_view.ejs %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+        </section>
+        
         <% include UIComponents/ThemeScripts/Theme_JS.ejs %>
+        <% include UIComponents/SpecWidget/infobox_adblock.ejs %>
     </body>

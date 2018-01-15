@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = { 
     color:function(){
         var colorArray = ['red','blue','green','pink'];
         var color = colorArray[Math.floor(Math.random() * colorArray.length)];
