@@ -4,6 +4,8 @@ var models = require('../models');
 var randomGen = require('../controllers/randomGen');
 var moment = require('moment');
 var keyurlGen = require('../controllers/keyUrlGen');
+var base_component = require('../controllers/websiteOwner/base');
+var adblocks_component = require('../controllers/websiteOwner/adblocks');
 
 var demo_user = {
   id:1,
@@ -11,116 +13,22 @@ var demo_user = {
   image:'../../../../../images/user.png'
 }
 
-router.get('/', function(req, res, next) {
-
-  var pageBasic = {
-    page_title:'PIXSELL'
-  }
-  var headerBar = {
-    header_title:'PIXSELL AD-Store - WEB SITE OWNER',
-    header_title_URL:'./'
-  }
-  var leftMenu = {
-    user:{
-      name:demo_user.name,
-      image:demo_user.image,
-      subtitile:'ABC.lk | BC.com'
-    },
-
-    menu:{
-        items :[
-          {name:'Home',class:'active',url:'/',icon:'home'},
-          {name:'AD Blocks',class:'normal',url:'webSiteOwner/adblock',icon:'widgets'},
-          {name:'My Account',class:'normal',url:'#',icon:'verified_user'},
-          {name:'Help',class:'normal',url:'/help',icon:'help'},
-        ]
-    },
-    footer:{
-    }
-  } 
-  var page_content = {
-    dash4panels:{
-      items : [
-        {name:'Active Blocks',width:4,color:'red',icon:'widgets',value:3},
-        {name:'Earnings',width:4,color:'green',icon:'monetization_on',value:'54K'},
-        {name:'Micro Investors',width:4,color:'blue',icon:'grain',value:2468}
-      ]
-    }
-  }
-  res.render('webSiteOwner',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content});
+router.get('/', function(req, res, next) {  
+  res.render('webSiteOwner',base_component.base_component(demo_user));
 });
 
-router.get('/adblock',function(req,res,next){
-  var pageBasic = {
-    page_title:'PIXSELL'
-  }
-  var headerBar = {
-    header_title:'PIXSELL AD-Store - WEB SITE OWNER',
-    header_title_URL:'#'
-  }
-  var leftMenu = {
-    user:{
-      name:demo_user.name,
-      image:demo_user.image,
-      subtitile:'ABC.lk | BC.com'
-    },
-    menu:{
-        items :[
-          {name:'Home',class:'normal',url:'/webSiteOwner',icon:'home'},
-          {name:'AD Blocks',class:'active',url:'#',icon:'widgets'},
-          {name:'My Account',class:'normal',url:'#',icon:'verified_user'},
-          {name:'Help',class:'normal',url:'/help',icon:'help'},
-        ]
-    },
-    footer:{
-    }
-  } 
-
-  var block_fillData=[];
-
-  var blocks =  models.adblock.findAll({
-    where: {
-      ownerid: 1
-    }
-  }).then(blockInst => {
-      blockInst.forEach(blk => {
-        var temp_earn = randomGen.earn()[0];
-        var temp_complete = randomGen.complete()[0];
-        var temp_imp = randomGen.imp()[0];
-        var temp_demand = randomGen.demand()[0];
-
-        block_fillData.push({
-          name:blk.websitename+" : "+blk.name,
-          subTitle:'since '+blk.start,
-          size:6,
-          color:randomGen.color(),
-          widget_earn:{value:temp_earn.earn_Amount,data_arr:temp_earn.earn_Arr},
-          widget_complete:{value:temp_complete.complete_Value,data_arr:temp_complete.complete_Arr},
-          widget_imp:{value:temp_imp.imp_Value,data_arr:temp_imp.imp_Arr},
-          widget_demand:{value:temp_demand.demanding_Value,data_arr:temp_demand.demand_Arr}
-        });
-      });
-     // console.log(block_fillData);
-      var page_content = {
-        block_register:{
-    
-        },
-        formWizard:{
-    
-        },
-        adblocksView:{ 
-          blocks : block_fillData
-        }
-      }
-     
-      res.render('webSiteOwner',{pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content})
-  })
-
- 
-
-  
+router.get('/adblocks',function(req,res,next){
+  //res.render('webSiteOwner',base_component.base_component(demo_user));
+  res.render('webSiteOwner',adblocks_component.adblocks_component(demo_user));
 });
 
+router.get('/newBlock',function(req,res,next){
+  res.render('webSiteOwner',base_component.base_component(demo_user));
+});
+
+router.get('/myaccount',function(req,res,next){
+  res.render('webSiteOwner',base_component.base_component(demo_user));
+});
 
 router.post('/newAdblockRegistration',function(req,res,next){
   console.log(req.body);
