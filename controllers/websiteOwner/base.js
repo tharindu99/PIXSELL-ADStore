@@ -37,6 +37,7 @@ module.exports = {
           }
 
           var output = {pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content}
+         // console.log(output);
         return output;
     }
 }

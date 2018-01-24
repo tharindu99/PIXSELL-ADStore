@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router(); 
 var models = require('../models');
-var randomGen = require('../controllers/randomGen');
+var randomGen = require('../controllers/common_logics/randomGen');
 
 var demo_user = {
   id:1,

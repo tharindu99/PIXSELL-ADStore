@@ -1,9 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../models');
-var randomGen = require('../controllers/randomGen');
-var moment = require('moment');
-var keyurlGen = require('../controllers/keyUrlGen');
+
 var base_component = require('../controllers/websiteOwner/base');
 var adblocks_component = require('../controllers/websiteOwner/adblocks');
 
@@ -19,6 +16,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/adblocks',function(req,res,next){
   //res.render('webSiteOwner',base_component.base_component(demo_user));
+  console.log(adblocks_component.adblocks_component(demo_user));
   res.render('webSiteOwner',adblocks_component.adblocks_component(demo_user));
 });
 
