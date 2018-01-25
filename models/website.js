@@ -1,29 +1,20 @@
 module.exports = function(sequelize,Sequelize){
-    var websiteOwner = sequelize.define('websiteOwner',{
-        ownerid: {
+    var website = sequelize.define('website',{
+        siteid: {
             autoIncrement:true,
             primaryKey:true,
             type:Sequelize.INTEGER
         },
         name:{
-            type:Sequelize.TEXT, 
+            type:Sequelize.STRING,
             notEmpty:true
         }, 
-        email: {
+        URL: {
             type: Sequelize.STRING,
             validate: {
-                isEmail: true
+                isUrl: true
             }
         },
-        password: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
- 
-        last_login: {
-            type: Sequelize.DATE
-        },
- 
         status: {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'
@@ -34,5 +25,5 @@ module.exports = function(sequelize,Sequelize){
 
    
 
-    return websiteOwner;
+    return website;
 }

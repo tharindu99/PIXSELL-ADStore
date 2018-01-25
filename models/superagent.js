@@ -13,7 +13,7 @@ module.exports = function(sequelize,Sequelize){
             type:Sequelize.DOUBLE,
             defaultValue:0
         }, 
-        time: {
+        timestamp: {
             type: Sequelize.DATE
         },  
         status: {

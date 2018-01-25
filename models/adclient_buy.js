@@ -8,7 +8,7 @@ module.exports = function(sequelize,Sequelize){
             type: Sequelize.FLOAT,
             allowNull: false,
         },
-        duration:{
+        duration:{ 
             //number of days
             type:Sequelize.INTEGER,
             allowNull: false,

@@ -29,6 +29,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.adblock.belongsTo(db.websiteOwner,{foreignKey: 'ownerid'}); 
+db.adblock.belongsTo(db.website,{foreignKey: 'siteid'});
 db.adblock_history.belongsTo(db.adblock,{foreignKey: 'blockid'}); 
 db.superagent.belongsTo(db.adblock,{foreignKey: 'blockid'}); 
 db.adclient_buy.belongsTo(db.adblock,{foreignKey: 'blockid'});

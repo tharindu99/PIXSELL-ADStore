@@ -4,19 +4,48 @@ var randomGen = require('../common_logics/randomGen');
 var moment = require('moment');
 var keyurlGen = require('../common_logics/keyUrlGen');
 
-function add (a){
-    return a*2;
-}
 module.exports = {
     adblocks_component:function(user){
-        var blocks =  models.adblock.findAll({
-                where: {
-                  ownerid: 1
-                }
-                }).then(blockInst => {
-                   return blockInst 
-                });
-        return blocks
+
+      var blocks =  models.adblock.findAll({
+            where: {
+              ownerid: 1
+            }
+            }).then(blockInst => {
+              console.log(blockInst);
+            });
+
+      var pageBasic = {
+            page_title:'PIXSELL'
+          }
+          var headerBar = {
+            header_title:'PIXSELL AD-Store - WEB SITE OWNER',
+            header_title_URL:'./'
+          }
+          var leftMenu = {
+            user:{
+              name:user.name,
+              image:user.image,
+              subtitile:'ABC.lk | BC.com'
+            },
+            menu:{
+                items :[
+                  {name:'Home',class:'active',url:'/',icon:'home'},
+                  {name:'AD Blocks',class:'normal',url:'./adblocks',icon:'widgets'},
+                  {name:'New AD Block',class:'normal',url:'webSiteOwner/newBlock',icon:'crop_square'},
+                  {name:'My Account',class:'normal',url:'webSiteOwner/myaccount',icon:'verified_user'},
+                  {name:'Help',class:'normal',url:'#',icon:'help'},
+                ]
+            },
+            footer:{
+            }
+          } 
+          var page_content = {
+           
+          }
+
+          var output = {pageBasic:pageBasic,headerBar:headerBar,leftMenu:leftMenu,page_content:page_content}
+        return output;
         // var pageBasic = {
         //     page_title:'PIXSELL'
         //     }

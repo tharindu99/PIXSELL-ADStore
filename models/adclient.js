@@ -1,6 +1,6 @@
 module.exports = function(sequelize,Sequelize){
     var adclient = sequelize.define('adclient',{
-        adclientid: {
+        clientid: {
             autoIncrement:true,
             primaryKey:true,
             type:Sequelize.INTEGER

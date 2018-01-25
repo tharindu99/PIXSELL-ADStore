@@ -13,14 +13,6 @@ module.exports = function(sequelize,Sequelize){
             type: Sequelize.STRING,
             allowNull: false
         },
-        siteurl: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        websitename: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
         height:{
             type:Sequelize.INTEGER,
             allowNull: false,
@@ -51,8 +43,12 @@ module.exports = function(sequelize,Sequelize){
         status: {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'
+        },
+        availability:{
+            type:Sequelize.ENUM('sold','unsold'),
+            defaultValue:'sold'
         }
- 
+        
     }
 
 
